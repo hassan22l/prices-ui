@@ -1,0 +1,36 @@
+.my-price-card {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  max-width: 420px;
+  background: #fcfcfc;
+}
+
+.my-price-card p {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+.my-price-card input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.my-price-card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #1976d2;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.my-price-card button:hover {
+  background: #155fa0;
+}

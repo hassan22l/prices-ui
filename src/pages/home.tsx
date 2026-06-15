@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { getProduct, saveMyPrice} from "../services/api";
+import { getProduct, saveMyPrice } from "../services/api";
 import type { Product } from "../interfaces/product";
-
+import SearchBar from "../components/searchBar/SearchBar";
+import ProductInfo from "../components/productInfo/ProductInfo";
+import MyPriceCard from "../components/myPriceCard/MyPriceCard";
+import "./home.css";
 
 function Home() {
   const [barcode, setBarcode] = useState("");
   const [product, setProduct] = useState<Product | null>(null);
   const [userPrice, setUserPrice] = useState("");
+
   async function searchProduct(code: string) {
     if (!code) return;
     try {
@@ -23,7 +27,6 @@ function Home() {
     if (!product) return;
     const priceValue = Number(userPrice);
     if (Number.isNaN(priceValue)) {
-      alert("Ingresa un precio válido");
       return;
     }
 
@@ -40,42 +43,20 @@ function Home() {
   return (
     <div>
       <h1>Precios</h1>
-      <input
-        autoFocus
-        value={barcode}
-        placeholder="Escanear producto"
-        onChange={(e) => setBarcode(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            searchProduct(barcode);
-          }
-        }}
+      <SearchBar
+        barcode={barcode}
+        onBarcodeChange={setBarcode}
+        onSearchProduct={searchProduct}
       />
-      {product && (
-        <div>
-          <h2>{product.name}</h2>
-          <img
-          src={product.image}
-          alt={product.name} />
-          <h3>Precios</h3>
-          {product.prices.map((p, index) => (
-            <div key={index}>
-              {p.shop}
-              {"-$"}
-              {p.price}
-            </div>
-          ))}
 
-          <div style={{ marginTop: "20px" }}>
-            <h3>Mi precio</h3>
-            <input
-            type="number"
-            value={userPrice}
-            placeholder="Ingresar mi precio"
-            onChange={(e) => setUserPrice(e.target.value)}
+      {product && (
+        <div className="home-page__details">
+          <ProductInfo product={product} />
+          <MyPriceCard
+            userPrice={userPrice}
+            onUserPriceChange={setUserPrice}
+            onSavePrice={savePrice}
           />
-          <button onClick={savePrice}>Guardar precio</button>
-        </div>
         </div>
       )}
     </div>

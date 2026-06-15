@@ -1,0 +1,15 @@
+.product-info {
+  margin-top: 16px;
+}
+
+.product-info img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  margin: 10px 0 16px;
+}
+
+.product-info__prices {
+  display: grid;
+  gap: 10px;
+}

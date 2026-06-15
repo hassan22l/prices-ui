@@ -1,0 +1,21 @@
+.home-page {
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.home-page h1 {
+  margin-bottom: 24px;
+}
+
+.home-page__details {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .home-page__details {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
