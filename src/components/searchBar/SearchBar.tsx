@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import type { ChangeEvent } from "react";
 import "./SearchBar.css";
+import { BsUpcScan } from "react-icons/bs";
 
 type SearchBarProps = {
   barcode: string;
@@ -32,6 +33,7 @@ export default function SearchBar({
 
   return (
     <div className="search-bar">
+      <BsUpcScan />
       <input
         autoFocus
         value={barcode}

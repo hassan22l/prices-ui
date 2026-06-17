@@ -14,7 +14,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       <h3>Precios</h3>
       <div className="product-info__prices">
         {product.prices.map((price, index) => (
-          <BranchCard key={index} shop={price.shop} price={price.price} />
+          <BranchCard key={index} shop={price.shop} price={price.price} logo={price.logo} />
         ))}
       </div>
     </div>

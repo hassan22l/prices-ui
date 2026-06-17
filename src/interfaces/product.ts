@@ -1,6 +1,7 @@
 export type ProductPrice={
     shop: string;
     price: number;
+    logo: string;
 };
 
 export type Product= {
