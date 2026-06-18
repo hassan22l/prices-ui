@@ -1,7 +1,7 @@
 .home-page {
-  padding: 24px;
-  max-width: 960px;
-  margin: 0 auto;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0;
 }
 
 .home-page h1 {
@@ -9,13 +9,32 @@
 }
 
 .home-page__details {
-  display: grid;
+  display: flex;
+  align-items: flex-start;
   gap: 24px;
 }
 
-@media (min-width: 768px) {
+.prices-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 460px;
+}
+
+.prices-panel__group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
   .home-page__details {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+    flex-direction: column;
+  }
+
+  .prices-panel {
+    max-width: 100%;
   }
 }

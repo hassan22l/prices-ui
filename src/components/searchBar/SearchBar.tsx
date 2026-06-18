@@ -33,7 +33,8 @@ export default function SearchBar({
 
   return (
     <div className="search-bar">
-      <BsUpcScan />
+      <BsUpcScan className="search-bar-icon" />
+
       <input
         autoFocus
         value={barcode}

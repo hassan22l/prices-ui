@@ -4,6 +4,7 @@ import type { Product } from "../interfaces/product";
 import SearchBar from "../components/searchBar/SearchBar";
 import ProductInfo from "../components/productInfo/ProductInfo";
 import MyPriceCard from "../components/myPriceCard/MyPriceCard";
+import BranchCard from "../components/branchCard/BranchCard";
 import "./home.css";
 
 function Home() {
@@ -41,7 +42,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="home-page">
       <h1>Precios</h1>
       <SearchBar
         barcode={barcode}
@@ -52,11 +53,36 @@ function Home() {
       {product && (
         <div className="home-page__details">
           <ProductInfo product={product} />
-          <MyPriceCard
-            userPrice={userPrice}
-            onUserPriceChange={setUserPrice}
-            onSavePrice={savePrice}
-          />
+
+          <div className="prices-panel">
+            <div className="prices-panel__group prices-panel__group--top">
+              {product.prices.slice(0, 3).map((price, index) => (
+                <BranchCard
+                  key={`top-${index}`}
+                  shop={price.shop}
+                  price={price.price}
+                  logo={price.logo}
+                />
+              ))}
+            </div>
+
+            <MyPriceCard
+              userPrice={userPrice}
+              onUserPriceChange={setUserPrice}
+              onSavePrice={savePrice}
+            />
+
+            <div className="prices-panel__group prices-panel__group--bottom">
+              {product.prices.slice(3, 6).map((price, index) => (
+                <BranchCard
+                  key={`bottom-${index}`}
+                  shop={price.shop}
+                  price={price.price}
+                  logo={price.logo}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>

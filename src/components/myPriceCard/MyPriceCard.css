@@ -1,36 +1,90 @@
 .my-price-card {
-  margin-top: 20px;
+  align-items: center;
+  margin-top: 0;
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 14px;
-  max-width: 420px;
+  width: 100%;
+  max-width: 100%;
   background: #fcfcfc;
 }
 
+.my-price-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.my-price-card h3 {
+  margin: 0;
+}
+
 .my-price-card p {
-  font-size: 1.3rem;
+  position: relative;
+  font-size: 1.9rem;
   margin: 10px 0;
 }
 
-.my-price-card input {
+.my-price-card__edit-button,
+.my-price-card__save-button,
+.my-price-card__cancel-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.my-price-card__edit-button,
+.my-price-card__save-button {
+  background: #1976d2;
+  color: white;
+}
+
+.my-price-card__edit-button:hover,
+.my-price-card__save-button:hover {
+  background: #155fa0;
+}
+
+.my-price-card__cancel-button {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.my-price-card__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.my-price-card__modal {
+  background: white;
+  width: min(420px, 90vw);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.my-price-card__modal h4 {
+  margin: 0 0 12px;
+}
+
+.my-price-card__modal input {
   width: 100%;
   padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
-.my-price-card button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #1976d2;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.my-price-card button:hover {
-  background: #155fa0;
+.my-price-card__modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }

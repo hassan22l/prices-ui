@@ -2,14 +2,37 @@
   margin-top: 16px;
 }
 
+.product-header {
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap:0;
+  margin-bottom: 20px;
+  margin-right: 100px;
+}
+
 .product-info img {
   width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  margin: 10px 0 16px;
+  max-width: 400px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.product-name {
+  align-items: top;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-left: 10px;
 }
 
 .product-info__prices {
   display: grid;
   gap: 10px;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
 }
