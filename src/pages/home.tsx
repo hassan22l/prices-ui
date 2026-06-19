@@ -6,6 +6,7 @@ import ProductInfo from "../components/productInfo/ProductInfo";
 import MyPriceCard from "../components/myPriceCard/MyPriceCard";
 import BranchCard from "../components/branchCard/BranchCard";
 import "./home.css";
+import Grainient from "./backgrounGrandient";
 
 function Home() {
   const [barcode, setBarcode] = useState("");
@@ -43,48 +44,77 @@ function Home() {
 
   return (
     <div className="home-page">
-      <h1>Precios</h1>
-      <SearchBar
-        barcode={barcode}
-        onBarcodeChange={setBarcode}
-        onSearchProduct={searchProduct}
-      />
+      <div className="home-page__gradient">
+        <Grainient
+          color1="#9d1717"
+          color2="#4423c7"
+          color3="#B497CF"
+          timeSpeed={0.25}
+          colorBalance={0.03}
+          warpStrength={1.55}
+          warpFrequency={5}
+          warpSpeed={2}
+          warpAmplitude={50}
+          blendAngle={102}
+          blendSoftness={0.2}
+          rotationAmount={500}
+          noiseScale={2}
+          grainAmount={0.1}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+      </div>
 
-      {product && (
-        <div className="home-page__details">
-          <ProductInfo product={product} />
+      <div className="home-page__content">
+        <h1>Precios</h1>
+        <SearchBar
+          barcode={barcode}
+          onBarcodeChange={setBarcode}
+          onSearchProduct={searchProduct}
+        />
 
-          <div className="prices-panel">
-            <div className="prices-panel__group prices-panel__group--top">
-              {product.prices.slice(0, 3).map((price, index) => (
-                <BranchCard
-                  key={`top-${index}`}
-                  shop={price.shop}
-                  price={price.price}
-                  logo={price.logo}
-                />
-              ))}
-            </div>
+        {product && (
+          <div className="home-page__details">
+            <ProductInfo product={product} />
 
-            <MyPriceCard
-              userPrice={userPrice}
-              onUserPriceChange={setUserPrice}
-              onSavePrice={savePrice}
-            />
+            <div className="prices-panel">
+              <div className="prices-panel__group prices-panel__group--top">
+                {product.prices.slice(0, 3).map((price, index) => (
+                  <BranchCard
+                    key={`top-${index}`}
+                    shop={price.shop}
+                    price={price.price}
+                    logo={price.logo}
+                  />
+                ))}
+              </div>
 
-            <div className="prices-panel__group prices-panel__group--bottom">
-              {product.prices.slice(3, 6).map((price, index) => (
-                <BranchCard
-                  key={`bottom-${index}`}
-                  shop={price.shop}
-                  price={price.price}
-                  logo={price.logo}
-                />
-              ))}
+              <MyPriceCard
+                userPrice={userPrice}
+                onUserPriceChange={setUserPrice}
+                onSavePrice={savePrice}
+              />
+
+              <div className="prices-panel__group prices-panel__group--bottom">
+                {product.prices.slice(3, 6).map((price, index) => (
+                  <BranchCard
+                    key={`bottom-${index}`}
+                    shop={price.shop}
+                    price={price.price}
+                    logo={price.logo}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

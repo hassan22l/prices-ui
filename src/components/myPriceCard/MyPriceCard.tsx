@@ -31,7 +31,7 @@ export default function MyPriceCard({
         </button>
       </div>
 
-      <p>${userPrice || "0"}</p>
+      <p className= "price" >${userPrice || "0"}</p>
 
       {isModalOpen && (
         <div className="my-price-card__modal-overlay">

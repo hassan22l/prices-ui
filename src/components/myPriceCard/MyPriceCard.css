@@ -21,14 +21,13 @@
 }
 
 .my-price-card p {
-  position: relative;
   font-size: 1.9rem;
   margin: 10px 0;
 }
 
-.my-price-card__edit-button,
-.my-price-card__save-button,
-.my-price-card__cancel-button {
+.edit-button,
+.save-button,
+.cancel-button {
   padding: 8px 12px;
   border: none;
   border-radius: 10px;
@@ -36,18 +35,18 @@
   cursor: pointer;
 }
 
-.my-price-card__edit-button,
-.my-price-card__save-button {
+.edit-button,
+.save-button {
   background: #1976d2;
   color: white;
 }
 
-.my-price-card__edit-button:hover,
-.my-price-card__save-button:hover {
+.edit-button:hover,
+.save-button:hover {
   background: #155fa0;
 }
 
-.my-price-card__cancel-button {
+.cancel-button {
   background: #f1f1f1;
   color: #333;
 }
