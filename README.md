@@ -57,17 +57,7 @@ npm run preview
 
 ## Screenshots
 
-Add UI screenshots to `public/screenshots` and reference them in this README. Example:
-
 ![Home view](public/screenshots/home.png)
-
-Suggested screenshots:
-
-- `home.png` — main product list or landing page
-- `product-details.png` — product detail view
-- `search.png` — search results
-
-Place actual images under `public/screenshots` so they are served by Vite during development.
 
 ## Folder Structure (high level)
 
