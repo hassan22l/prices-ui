@@ -12,12 +12,29 @@ function Home() {
   const [product, setProduct] = useState<Product | null>(null);
   const [userPrice, setUserPrice] = useState("");
 
+  function normalizeUserPrice(value: unknown): string {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return String(value);
+    }
+
+    if (typeof value === "string") {
+      const trimmedValue = value.trim();
+      return trimmedValue === "" ? "" : trimmedValue;
+    }
+
+    return "";
+  }
+
   async function searchProduct(code: string) {
     if (!code) return;
     try {
       const data = await getProduct(code);
+      const normalizedUserPrice = normalizeUserPrice(
+        data.userPrice
+      );
+
       setProduct(data);
-      setUserPrice(data.userPrice !== null ? String(data.userPrice) : "");
+      setUserPrice(normalizedUserPrice);
       setBarcode("");
     } catch (error) {
       console.error(error);
@@ -27,7 +44,7 @@ function Home() {
   async function savePrice() {
     if (!product) return;
     const priceValue = Number(userPrice);
-    if (Number.isNaN(priceValue)) {
+    if (Number.isNaN(priceValue) || userPrice.trim() === "") {
       return;
     }
 

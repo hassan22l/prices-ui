@@ -31,7 +31,7 @@ export default function MyPriceCard({
         </button>
       </div>
 
-      <p className= "price" >${userPrice || "0"}</p>
+      <p className="price">${userPrice || "0"}</p>
 
       {isModalOpen && (
         <div className="my-price-card__modal-overlay">
@@ -50,7 +50,10 @@ export default function MyPriceCard({
               >
                 Cancelar
               </button>
-              <button className="my-price-card__save-button" onClick={handleSave}>
+              <button
+                className="my-price-card__save-button"
+                onClick={handleSave}
+              >
                 Guardar
               </button>
             </div>

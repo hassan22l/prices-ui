@@ -5,9 +5,13 @@ export type ProductPrice={
 };
 
 export type Product= {
+    mainColor: string;
+    backgroundColor?: string;
     barcode: string;
     name: string;
     image: string;
     prices: ProductPrice[];
-    userPrice: number | null;
+    userPrice?: number | null;
+    user_price?: number | string | null;
+    my_price?: number | string | null;
 }

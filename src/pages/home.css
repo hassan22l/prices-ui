@@ -1,7 +1,7 @@
 body,
 html {
   margin: 0;
-  background: #0f0f14;
+  background: #ffffff;
 }
 
 #root {
@@ -13,7 +13,7 @@ html {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background: #0f0f14;
+  background: linear-gradient(90deg, rgba(255, 94, 94, 0.24) 0%, rgba(255, 138, 138, 0.12) 42%, #ffffff 100%);
 }
 
 .home-page__gradient {
