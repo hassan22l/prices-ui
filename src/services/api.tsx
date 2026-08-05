@@ -1,6 +1,6 @@
 import type { Product } from "../interfaces/product";
 
-const API_URL = "http://localhost:8080";
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8080";
 
 export async function getProduct(id: string): Promise<Product> {
   const response = await fetch(`${API_URL}/api/v1/products/${id}`);

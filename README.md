@@ -33,7 +33,7 @@ npm install
 
 The project uses Vite. Set the API base URL via an environment variable. Example (Vite expects `VITE_` prefix):
 
-- `VITE_API_BASE_URL` — base URL for the Prices API (e.g. `http://localhost:3000`)
+- `VITE_API_URL` — base URL for the Prices API (e.g. `http://localhost:3000`)
 
 Create a `.env` file at the project root with the variable above.
 
@@ -68,7 +68,7 @@ npm run preview
 
 ## Deployment
 
-Build the app (`npm run build`) and deploy the `dist` output to any static site hosting (Netlify, Vercel, GitHub Pages, etc.). Ensure the `VITE_API_BASE_URL` points to your deployed API.
+Build the app (`npm run build`) and deploy the `dist` output to any static site hosting (Netlify, Vercel, GitHub Pages, etc.). Ensure `VITE_API_URL` points to your deployed API.
 
 ## Contributing
 
