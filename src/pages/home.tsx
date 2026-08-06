@@ -3,7 +3,6 @@ import { getProduct, saveMyPrice } from "../services/api";
 import type { Product } from "../interfaces/product";
 import SearchBar from "../components/searchBar/SearchBar";
 import ProductInfo from "../components/productInfo/ProductInfo";
-import MyPriceCard from "../components/myPriceCard/MyPriceCard";
 import BranchCard from "../components/branchCard/BranchCard";
 import "./home.css";
 
@@ -30,7 +29,7 @@ function Home() {
     try {
       const data = await getProduct(code);
       const normalizedUserPrice = normalizeUserPrice(
-        data.userPrice
+        data.userPrice ?? data.user_price ?? data.my_price
       );
 
       setProduct(data);
@@ -43,6 +42,7 @@ function Home() {
 
   async function savePrice() {
     if (!product) return;
+
     const priceValue = Number(userPrice);
     if (Number.isNaN(priceValue) || userPrice.trim() === "") {
       return;
@@ -60,9 +60,7 @@ function Home() {
 
   return (
     <div className="home-page">
-
       <div className="home-page__content">
-        <h1>Precios</h1>
         <SearchBar
           barcode={barcode}
           onBarcodeChange={setBarcode}
@@ -71,7 +69,12 @@ function Home() {
 
         {product && (
           <div className="home-page__details">
-            <ProductInfo product={product} />
+            <ProductInfo
+              product={product}
+              userPrice={userPrice}
+              onUserPriceChange={setUserPrice}
+              onSavePrice={savePrice}
+            />
 
             <div className="prices-panel">
               <div className="prices-panel__group prices-panel__group--top">
@@ -84,12 +87,6 @@ function Home() {
                   />
                 ))}
               </div>
-
-              <MyPriceCard
-                userPrice={userPrice}
-                onUserPriceChange={setUserPrice}
-                onSavePrice={savePrice}
-              />
 
               <div className="prices-panel__group prices-panel__group--bottom">
                 {product.prices.slice(3, 6).map((price, index) => (
@@ -108,4 +105,5 @@ function Home() {
     </div>
   );
 }
+
 export default Home;

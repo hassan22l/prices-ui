@@ -4,14 +4,13 @@
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 14px;
-  width: 100%;
+  width: 80%;
   max-width: 100%;
   background: #fcfcfc;
 }
 
 .my-price-card__header {
-  display: flex;
-  align-items: center;
+  display: flex;  
   justify-content: space-between;
   gap: 12px;
 }
