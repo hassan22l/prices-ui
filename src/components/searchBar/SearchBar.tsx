@@ -30,7 +30,7 @@ export default function SearchBar({
       );
     }
 
-    function handleGlobalKeyDown(event: globalThis.KeyboardEvent) {
+    function handleGlobalKeyDown() {
       const input = inputRef.current;
       if (!input) return;
 
