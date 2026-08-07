@@ -1,55 +1,55 @@
-.my-price-card {
+.local-price {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: 0;
-  padding: 16px;
-  border: 1px solid #ddd;
+  gap: 2px;
+  width: 100%;
+  padding: 18px 16px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
   border-radius: 14px;
-  width: 80%;
-  max-width: 100%;
-  background: #fcfcfc;
+  text-align: center;
 }
 
-.my-price-card__header {
-  display: flex;  
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.my-price-card h3 {
-  margin: 0;
-}
-
-.my-price-card p {
-  font-size: 1.9rem;
-  margin: 10px 0;
-}
-
-.edit-button,
-.save-button,
-.cancel-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 10px;
+.local-price__edit {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
   font-weight: 600;
-  cursor: pointer;
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--green-border);
+  border-radius: 999px;
 }
 
-.edit-button,
-.save-button {
-  background: #1976d2;
-  color: white;
+.local-price__edit:hover {
+  background: #fff;
 }
 
-.edit-button:hover,
-.save-button:hover {
-  background: #155fa0;
+.local-price__label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--green);
 }
 
-.cancel-button {
-  background: #f1f1f1;
-  color: #333;
+.local-price__sub {
+  font-size: 0.75rem;
+  color: #4a8f63;
 }
 
+.local-price__value {
+  margin-top: 4px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+}
+
+/* Modal */
 .my-price-card__modal-overlay {
   position: fixed;
   inset: 0;
@@ -85,4 +85,22 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.my-price-card__save-button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--green);
+}
+
+.my-price-card__cancel-button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #333;
+  background: #f1f1f1;
 }

@@ -11,7 +11,7 @@ export default function MyPriceCard({
   userPrice,
   onUserPriceChange,
   onSavePrice,
-}: MyPriceCardProps) {
+}: Readonly<MyPriceCardProps>) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSave = async () => {
@@ -19,19 +19,24 @@ export default function MyPriceCard({
     setIsModalOpen(false);
   };
 
-  return (
-    <div className="my-price-card">
-      <div className="my-price-card__header">
-        <h3>Mi precio</h3>
-        <button
-          className="my-price-card__edit-button"
-          onClick={() => setIsModalOpen(true)}
-        >
-          Editar Precio
-        </button>
-      </div>
+  const numericPrice = Number(userPrice);
+  const formattedPrice =
+    userPrice.trim() !== "" && Number.isFinite(numericPrice)
+      ? Math.round(numericPrice).toLocaleString("es-CL")
+      : "0";
 
-      <p className="price">${userPrice || "0"}</p>
+  return (
+    <div className="local-price">
+      <button
+        className="local-price__edit"
+        type="button"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Editar
+      </button>
+      <span className="local-price__label">PRECIO LOCAL</span>
+      <span className="local-price__sub">(en tu tienda)</span>
+      <span className="local-price__value">${formattedPrice}</span>
 
       {isModalOpen && (
         <div className="my-price-card__modal-overlay">
@@ -45,12 +50,14 @@ export default function MyPriceCard({
             />
             <div className="my-price-card__modal-actions">
               <button
+                type="button"
                 className="my-price-card__cancel-button"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancelar
               </button>
               <button
+                type="button"
                 className="my-price-card__save-button"
                 onClick={handleSave}
               >

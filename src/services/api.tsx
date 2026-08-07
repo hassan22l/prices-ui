@@ -13,7 +13,7 @@ export async function getProduct(id: string): Promise<Product> {
 }
 
 export async function saveMyPrice(id: string, price: number ) {
-  const response = await fetch(`${API_URL}/api/v1/products/${id}/users_prices`, {
+  const response = await fetch(`${API_URL}/api/v1/products/${id}/user_prices`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

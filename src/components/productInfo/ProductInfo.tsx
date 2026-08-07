@@ -14,20 +14,18 @@ export default function ProductInfo({
   userPrice,
   onUserPriceChange,
   onSavePrice,
-}: ProductInfoProps) {
+}: Readonly<ProductInfoProps>) {
   return (
     <div className="product-info">
-      <div className="product-header">
+      <div className="product-info__image">
         <img src={product.image} alt={product.name} />
-        <div className="product-details">
-          <div className="product-name">{product.name}</div>
-          <MyPriceCard
-            userPrice={userPrice}
-            onUserPriceChange={onUserPriceChange}
-            onSavePrice={onSavePrice}
-          />
-        </div>
       </div>
+      <h2 className="product-info__name">{product.name}</h2>
+      <MyPriceCard
+        userPrice={userPrice}
+        onUserPriceChange={onUserPriceChange}
+        onSavePrice={onSavePrice}
+      />
     </div>
   );
 }
